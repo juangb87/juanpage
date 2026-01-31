@@ -3,6 +3,9 @@ import DarkModeToggle from "../components/DarkModeToggle";
 import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
+  const lightningTo =
+    process.env.NEXT_PUBLIC_LIGHTNING_ADDRESS ?? "TU_LIGHTNING_ADDRESS_AQUI";
+
   return (
     <main className="min-h-screen bg-background text-foreground px-6 py-12">
       <div className="flex justify-end max-w-3xl mx-auto mb-6">
@@ -57,6 +60,32 @@ export default function Home() {
         <p className="text-gray-700 dark:text-gray-300">
           También co-creador de <strong>Lightsats</strong>, un proyecto que ganó 1 BTC en un hackathon por hacer onboarding a nuevos usuarios de Bitcoin de forma amigable.
         </p>
+      </section>
+
+      {/* Donaciones */}
+      <section className="max-w-3xl mx-auto mt-16 text-center space-y-4">
+        <h2 className="text-2xl font-semibold">⚡ Invítame un café en sats</h2>
+        <p className="text-gray-700 dark:text-gray-300">
+          Si te sirve mi trabajo y querés apoyar, podés dejar una propina por
+          Lightning.
+        </p>
+
+        <div className="flex justify-center">
+          <lightning-widget
+            name="Juan"
+            accent="#F7931A"
+            to={lightningTo}
+            image="https://juanpage.com/avatar.jpeg"
+            amounts="100,500,1000,5000"
+            labels="100 sats,500 sats,1k sats,5k sats"
+          />
+        </div>
+
+        {lightningTo === "TU_LIGHTNING_ADDRESS_AQUI" ? (
+          <p className="text-sm text-red-600 dark:text-red-400">
+            Falta configurar <code>NEXT_PUBLIC_LIGHTNING_ADDRESS</code>.
+          </p>
+        ) : null}
       </section>
 
       {/* Contacto */}
