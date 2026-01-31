@@ -4,7 +4,7 @@ import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   const lightningTo =
-    process.env.NEXT_PUBLIC_LIGHTNING_ADDRESS ?? "TU_LIGHTNING_ADDRESS_AQUI";
+    process.env.NEXT_PUBLIC_LIGHTNING_ADDRESS ?? "juangb87@cash.app";
 
   return (
     <main className="min-h-screen bg-background text-foreground px-6 py-12">
@@ -81,11 +81,6 @@ export default function Home() {
           />
         </div>
 
-        {lightningTo === "TU_LIGHTNING_ADDRESS_AQUI" ? (
-          <p className="text-sm text-red-600 dark:text-red-400">
-            Falta configurar <code>NEXT_PUBLIC_LIGHTNING_ADDRESS</code>.
-          </p>
-        ) : null}
       </section>
 
       {/* Contacto */}
