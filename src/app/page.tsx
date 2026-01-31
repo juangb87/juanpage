@@ -143,7 +143,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-4">
             <a
-              href="https://bumbei.com"
+              href="https://bumbei.com?utm_source=juanpage&utm_medium=personal_site&utm_campaign=homepage&r=a3b4c5d6"
               target="_blank"
               rel={EXT}
               className="group rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:bg-gray-50 dark:hover:bg-gray-900 transition"
