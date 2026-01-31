@@ -1,27 +1,94 @@
 
+"use client";
+
 import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import DarkModeToggle from "../components/DarkModeToggle";
 import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 const EXT = "noopener noreferrer";
 
+type Lang = "es" | "en";
+
 export default function Home() {
+  const [lang, setLang] = useState<Lang>("es");
+
+  useEffect(() => {
+    const stored = (localStorage.getItem("lang") as Lang | null) ?? null;
+    if (stored === "es" || stored === "en") setLang(stored);
+  }, []);
+
+  const t = useMemo(() => {
+    const dict = {
+      es: {
+        heroTitle: "Hola, soy Juan 👋",
+        heroSubtitle:
+          "Construyo productos digitales que conectan tecnología con libertad financiera.",
+        heroMeta: "Full-time en FlexOffers · Founder construyendo Bumbei",
+        ctaContact: "Contactar",
+        ctaProjects: "Ver proyectos",
+        projectsTitle: "🚀 Proyectos",
+        aboutTitle: "👨‍💻 Sobre mí",
+        aboutP1:
+          "Fundador de Bumbei, una plataforma que permite ganar satoshis por comprar en línea. Apasionado por Bitcoin, productos digitales y la educación financiera para todos.",
+        aboutP2:
+          "También co-creador de Lightsats, un proyecto que ganó 1 BTC en un hackathon por hacer onboarding a nuevos usuarios de Bitcoin de forma amigable.",
+        partnerships:
+          "🤝 Partnerships: Creadores y marcas — campañas con deeplinks + tracking.",
+      },
+      en: {
+        heroTitle: "Hi, I'm Juan 👋",
+        heroSubtitle:
+          "I build digital products that connect technology with financial freedom.",
+        heroMeta: "Full-time at FlexOffers · Founder building Bumbei",
+        ctaContact: "Contact",
+        ctaProjects: "See projects",
+        projectsTitle: "🚀 Projects",
+        aboutTitle: "👨‍💻 About",
+        aboutP1:
+          "Founder of Bumbei — earn satoshis when you shop online. Passionate about Bitcoin, digital products, and financial education.",
+        aboutP2:
+          "Co-creator of Lightsats — a project that won 1 BTC in a hackathon by onboarding new Bitcoin users in a friendly way.",
+        partnerships:
+          "🤝 Partnerships: Creators & brands — campaigns with deeplinks + tracking.",
+      },
+    } as const;
+
+    return dict[lang];
+  }, [lang]);
+
+  const setLanguage = (next: Lang) => {
+    setLang(next);
+    localStorage.setItem("lang", next);
+  };
+
   return (
     <main className="min-h-screen bg-background text-foreground px-4 sm:px-6 py-10 sm:py-14">
       <div className="max-w-3xl mx-auto">
         {/* Top bar */}
         <div className="flex items-center justify-between gap-4 mb-8">
           <div className="flex gap-2">
-            {/* TODO: wire real i18n later; for now keep as visual */}
             <button
-              className="px-3 py-1 text-sm border border-gray-200 dark:border-gray-800 rounded-full hover:bg-gray-50 dark:hover:bg-gray-900"
+              onClick={() => setLanguage("es")}
+              className={`px-3 py-1 text-sm border rounded-full transition ${
+                lang === "es"
+                  ? "border-gray-900 dark:border-gray-100"
+                  : "border-gray-200 dark:border-gray-800"
+              } hover:bg-gray-50 dark:hover:bg-gray-900`}
               aria-label="Español"
+              type="button"
             >
               🇪🇸 ES
             </button>
             <button
-              className="px-3 py-1 text-sm border border-gray-200 dark:border-gray-800 rounded-full hover:bg-gray-50 dark:hover:bg-gray-900"
+              onClick={() => setLanguage("en")}
+              className={`px-3 py-1 text-sm border rounded-full transition ${
+                lang === "en"
+                  ? "border-gray-900 dark:border-gray-100"
+                  : "border-gray-200 dark:border-gray-800"
+              } hover:bg-gray-50 dark:hover:bg-gray-900`}
               aria-label="English"
+              type="button"
             >
               🇺🇸 EN
             </button>
@@ -43,14 +110,13 @@ export default function Home() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
-            Hola, soy Juan 👋
+            {t.heroTitle}
           </h1>
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Construyo productos digitales que conectan tecnología con libertad
-            financiera.
+            {t.heroSubtitle}
           </p>
           <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400">
-            Full-time en FlexOffers · Founder construyendo Bumbei
+            {t.heroMeta}
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row justify-center gap-3">
@@ -58,20 +124,22 @@ export default function Home() {
               href="mailto:juan@bumbei.com"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-black text-white hover:bg-gray-800 transition"
             >
-              Contactar
+              {t.ctaContact}
             </a>
             <a
               href="#proyectos"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 transition"
             >
-              Ver proyectos
+              {t.ctaProjects}
             </a>
           </div>
         </section>
 
         {/* Proyectos */}
         <section id="proyectos" className="mt-12 sm:mt-16">
-          <h2 className="text-xl sm:text-2xl font-semibold mb-4">🚀 Proyectos</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+            {t.projectsTitle}
+          </h2>
 
           <div className="grid grid-cols-1 gap-4">
             <a
@@ -86,7 +154,9 @@ export default function Home() {
                     Bumbei
                   </div>
                   <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                    Cashback en Bitcoin al comprar online.
+                    {lang === "es"
+                      ? "Cashback en Bitcoin al comprar online."
+                      : "Bitcoin cashback when you shop online."}
                   </p>
                 </div>
                 <span className="text-sm text-gray-400">↗</span>
@@ -105,7 +175,9 @@ export default function Home() {
                     Lightsats
                   </div>
                   <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                    Enseña Bitcoin con pequeños incentivos.
+                    {lang === "es"
+                      ? "Enseña Bitcoin con pequeños incentivos."
+                      : "Teach Bitcoin with small incentives."}
                   </p>
                 </div>
                 <span className="text-sm text-gray-400">↗</span>
@@ -116,27 +188,18 @@ export default function Home() {
 
         {/* Sobre mí */}
         <section className="mt-12 sm:mt-16">
-          <h2 className="text-xl sm:text-2xl font-semibold mb-3">👨‍💻 Sobre mí</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-3">
+            {t.aboutTitle}
+          </h2>
           <div className="space-y-3 text-gray-700 dark:text-gray-300 leading-relaxed">
-            <p>
-              Fundador de <strong>Bumbei</strong>, una plataforma que permite
-              ganar satoshis por comprar en línea. Apasionado por Bitcoin,
-              productos digitales y la educación financiera para todos.
-            </p>
-            <p>
-              También co-creador de <strong>Lightsats</strong>, un proyecto que
-              ganó 1 BTC en un hackathon por hacer onboarding a nuevos usuarios
-              de Bitcoin de forma amigable.
-            </p>
+            <p>{t.aboutP1}</p>
+            <p>{t.aboutP2}</p>
           </div>
         </section>
 
         {/* Partnerships + Contacto */}
         <section className="mt-12 sm:mt-16 text-center">
-          <p className="text-base sm:text-lg font-medium">
-            🤝 Partnerships: Creadores y marcas — campañas con deeplinks +
-            tracking.
-          </p>
+          <p className="text-base sm:text-lg font-medium">{t.partnerships}</p>
 
           <a
             href="mailto:juan@bumbei.com"
