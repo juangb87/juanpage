@@ -2,6 +2,7 @@
 "use client";
 
 import Image from "next/image";
+import Script from "next/script";
 import { useEffect, useMemo, useState } from "react";
 import DarkModeToggle from "../components/DarkModeToggle";
 import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
@@ -184,7 +185,7 @@ export default function Home() {
                     alt="Bumbei logo"
                     width={28}
                     height={28}
-                    className="rounded"
+                    className="rounded shrink-0"
                   />
                   <div>
                     <div className="text-lg font-semibold group-hover:underline">
@@ -214,7 +215,7 @@ export default function Home() {
                     alt="Lightsats logo"
                     width={28}
                     height={28}
-                    className="rounded"
+                    className="rounded shrink-0"
                   />
                   <div>
                     <div className="text-lg font-semibold group-hover:underline">
@@ -254,6 +255,22 @@ export default function Home() {
           >
             juan@bumbei.com
           </a>
+
+          {/* Lightning (TwentyUno) */}
+          <div className="mt-8 flex justify-center">
+            <div className="w-full max-w-sm">
+              <lightning-widget
+                name="Juan"
+                accent="#fc6a42"
+                to="juangb87@cash.app"
+              />
+              <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                {lang === "es"
+                  ? "Tips en sats via Lightning"
+                  : "Tip in sats via Lightning"}
+              </p>
+            </div>
+          </div>
 
           <div className="mt-8 flex justify-center gap-6 text-2xl">
             <a
@@ -307,6 +324,11 @@ export default function Home() {
             © {new Date().getFullYear()} Juan Gómez
           </p>
         </section>
+        {/* TwentyUno web component loader */}
+        <Script
+          src="https://embed.twentyuno.net/js/app.js"
+          strategy="afterInteractive"
+        />
       </div>
     </main>
   );
