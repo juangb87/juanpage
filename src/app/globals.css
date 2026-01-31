@@ -5,13 +5,27 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #151615; /* Bumbei Black 6 C */
+
+  /* Bumbei brand */
+  --bumbei-black: #151615;
+  --bumbei-orange: #fc6a42;
+  --bumbei-light-gray: #e3e3d7;
+  --bumbei-yellow: #f9c441;
+  --bumbei-blue: #6082db;
 }
 
 /* Toggle by adding/removing the `.dark` class on <html> */
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
+
+  /* keep brand colors stable in dark mode */
+  --bumbei-black: #151615;
+  --bumbei-orange: #fc6a42;
+  --bumbei-light-gray: #2a2a26;
+  --bumbei-yellow: #f9c441;
+  --bumbei-blue: #6082db;
 }
 
 @theme inline {

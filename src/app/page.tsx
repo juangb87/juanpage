@@ -4,11 +4,40 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import DarkModeToggle from "../components/DarkModeToggle";
-import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const EXT = "noopener noreferrer";
 
+const BUMBEI_ICON =
+  "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://bumbei.com&size=64";
+const LIGHTSATS_ICON =
+  "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://lightsats.com&size=64";
+
+const INSTAGRAM_URL = "https://instagram.com/juan.sebastiaan_";
+const NOSTR_URL =
+  "https://primal.net/p/nprofile1qqsdytmthzk65zndqnqa0ax4jfqwu7wk8wvpsr5qm9a8n8mrz53q8qch6lk0x";
+
 type Lang = "es" | "en";
+
+function NostrIcon() {
+  // Simple Nostr-style purple circle with an "n" mark (works without extra deps)
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="11" fill="#8A2BE2" />
+      <path
+        d="M8.5 16.8V7.2h2.1v1c.5-.8 1.4-1.2 2.6-1.2 2 0 3.3 1.2 3.3 3.5v6.3h-2.1v-6c0-1.2-.6-1.9-1.8-1.9-1.2 0-2 .8-2 2.1v5.8H8.5Z"
+        fill="white"
+      />
+    </svg>
+  );
+}
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("es");
@@ -72,9 +101,9 @@ export default function Home() {
               onClick={() => setLanguage("es")}
               className={`px-3 py-1 text-sm border rounded-full transition ${
                 lang === "es"
-                  ? "border-gray-900 dark:border-gray-100"
-                  : "border-gray-200 dark:border-gray-800"
-              } hover:bg-gray-50 dark:hover:bg-gray-900`}
+                  ? "border-[color:var(--bumbei-orange)]"
+                  : "border-[color:var(--bumbei-light-gray)]"
+              } hover:bg-[color:var(--bumbei-light-gray)]/30`}
               aria-label="Español"
               type="button"
             >
@@ -84,9 +113,9 @@ export default function Home() {
               onClick={() => setLanguage("en")}
               className={`px-3 py-1 text-sm border rounded-full transition ${
                 lang === "en"
-                  ? "border-gray-900 dark:border-gray-100"
-                  : "border-gray-200 dark:border-gray-800"
-              } hover:bg-gray-50 dark:hover:bg-gray-900`}
+                  ? "border-[color:var(--bumbei-orange)]"
+                  : "border-[color:var(--bumbei-light-gray)]"
+              } hover:bg-[color:var(--bumbei-light-gray)]/30`}
               aria-label="English"
               type="button"
             >
@@ -122,13 +151,13 @@ export default function Home() {
           <div className="pt-2 flex flex-col sm:flex-row justify-center gap-3">
             <a
               href="mailto:juan@bumbei.com"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-black text-white hover:bg-gray-800 transition"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-[color:var(--bumbei-orange)] text-[color:var(--bumbei-black)] hover:brightness-95 transition font-semibold"
             >
               {t.ctaContact}
             </a>
             <a
               href="#proyectos"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 transition"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl border border-[color:var(--bumbei-light-gray)] hover:bg-[color:var(--bumbei-light-gray)]/30 transition"
             >
               {t.ctaProjects}
             </a>
@@ -146,18 +175,27 @@ export default function Home() {
               href="https://bumbei.com?utm_source=juanpage&utm_medium=personal_site&utm_campaign=homepage&r=a3b4c5d6"
               target="_blank"
               rel={EXT}
-              className="group rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:bg-gray-50 dark:hover:bg-gray-900 transition"
+              className="group rounded-2xl border border-[color:var(--bumbei-light-gray)] p-5 hover:bg-[color:var(--bumbei-light-gray)]/20 transition"
             >
               <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-lg font-semibold group-hover:underline">
-                    Bumbei
+                <div className="flex gap-3">
+                  <Image
+                    src={BUMBEI_ICON}
+                    alt="Bumbei logo"
+                    width={28}
+                    height={28}
+                    className="rounded"
+                  />
+                  <div>
+                    <div className="text-lg font-semibold group-hover:underline">
+                      Bumbei
+                    </div>
+                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                      {lang === "es"
+                        ? "Cashback en Bitcoin al comprar online."
+                        : "Bitcoin cashback when you shop online."}
+                    </p>
                   </div>
-                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                    {lang === "es"
-                      ? "Cashback en Bitcoin al comprar online."
-                      : "Bitcoin cashback when you shop online."}
-                  </p>
                 </div>
                 <span className="text-sm text-gray-400">↗</span>
               </div>
@@ -167,18 +205,27 @@ export default function Home() {
               href="https://lightsats.com"
               target="_blank"
               rel={EXT}
-              className="group rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:bg-gray-50 dark:hover:bg-gray-900 transition"
+              className="group rounded-2xl border border-[color:var(--bumbei-light-gray)] p-5 hover:bg-[color:var(--bumbei-light-gray)]/20 transition"
             >
               <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-lg font-semibold group-hover:underline">
-                    Lightsats
+                <div className="flex gap-3">
+                  <Image
+                    src={LIGHTSATS_ICON}
+                    alt="Lightsats logo"
+                    width={28}
+                    height={28}
+                    className="rounded"
+                  />
+                  <div>
+                    <div className="text-lg font-semibold group-hover:underline">
+                      Lightsats
+                    </div>
+                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                      {lang === "es"
+                        ? "Enseña Bitcoin con pequeños incentivos."
+                        : "Teach Bitcoin with small incentives."}
+                    </p>
                   </div>
-                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                    {lang === "es"
-                      ? "Enseña Bitcoin con pequeños incentivos."
-                      : "Teach Bitcoin with small incentives."}
-                  </p>
                 </div>
                 <span className="text-sm text-gray-400">↗</span>
               </div>
@@ -203,7 +250,7 @@ export default function Home() {
 
           <a
             href="mailto:juan@bumbei.com"
-            className="inline-flex items-center justify-center mt-4 px-6 py-3 rounded-xl bg-black text-white hover:bg-gray-800 transition"
+            className="inline-flex items-center justify-center mt-4 px-6 py-3 rounded-xl bg-[color:var(--bumbei-orange)] text-[color:var(--bumbei-black)] hover:brightness-95 transition font-semibold"
           >
             juan@bumbei.com
           </a>
@@ -232,9 +279,27 @@ export default function Home() {
               target="_blank"
               rel={EXT}
               aria-label="LinkedIn"
-              className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition"
+              className="text-gray-500 dark:text-gray-300 hover:text-[color:var(--bumbei-blue)] transition"
             >
               <FaLinkedin />
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel={EXT}
+              aria-label="Instagram"
+              className="text-gray-500 dark:text-gray-300 hover:text-[color:var(--bumbei-orange)] transition"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href={NOSTR_URL}
+              target="_blank"
+              rel={EXT}
+              aria-label="Nostr"
+              className="text-gray-500 dark:text-gray-300 hover:text-[color:var(--bumbei-purple, var(--bumbei-blue))] transition"
+            >
+              <NostrIcon />
             </a>
           </div>
 
