@@ -182,8 +182,8 @@ export default function Home() {
                   <Image
                     src={BUMBEI_ICON}
                     alt="Bumbei logo"
-                    width={28}
-                    height={28}
+                    width={50}
+                    height={50}
                     className="rounded"
                   />
                   <div>
@@ -212,8 +212,8 @@ export default function Home() {
                   <Image
                     src={LIGHTSATS_ICON}
                     alt="Lightsats logo"
-                    width={28}
-                    height={28}
+                    width={50}
+                    height={50}
                     className="rounded"
                   />
                   <div>
