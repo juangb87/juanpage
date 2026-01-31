@@ -141,10 +141,10 @@ export default function Home() {
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
             {t.heroTitle}
           </h1>
-          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             {t.heroSubtitle}
           </p>
-          <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
             {t.heroMeta}
           </p>
 
