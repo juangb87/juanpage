@@ -9,10 +9,8 @@ import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const EXT = "noopener noreferrer";
 
-const BUMBEI_ICON =
-  "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://bumbei.com&size=64";
-const LIGHTSATS_ICON =
-  "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://lightsats.com&size=64";
+const BUMBEI_ICON = "/bumbei-favicon.png";
+const LIGHTSATS_ICON = "/lightsats-favicon.png";
 
 const INSTAGRAM_URL = "https://instagram.com/juan.sebastiaan_";
 const NOSTR_URL =
@@ -185,7 +183,7 @@ export default function Home() {
                     alt="Bumbei logo"
                     width={28}
                     height={28}
-                    className="rounded shrink-0"
+                    className="rounded shrink-0 object-contain"
                   />
                   <div>
                     <div className="text-lg font-semibold group-hover:underline">
@@ -215,7 +213,7 @@ export default function Home() {
                     alt="Lightsats logo"
                     width={28}
                     height={28}
-                    className="rounded shrink-0"
+                    className="rounded shrink-0 object-contain"
                   />
                   <div>
                     <div className="text-lg font-semibold group-hover:underline">
@@ -263,6 +261,7 @@ export default function Home() {
                 name="Juan"
                 accent="#fc6a42"
                 to="juangb87@cash.app"
+                image="/avatar.jpeg"
               />
               <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
                 {lang === "es"
