@@ -201,6 +201,32 @@ export default function Home() {
             </a>
 
             <a
+              href="https://galeonica.com?utm_source=juanpage&utm_medium=personal_site&utm_campaign=homepage"
+              target="_blank"
+              rel={EXT}
+              className="group rounded-2xl border border-[color:var(--bumbei-light-gray)] p-5 hover:bg-[color:var(--bumbei-light-gray)]/20 transition"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[color:var(--bumbei-orange)]/90 text-[color:var(--bumbei-black)] flex items-center justify-center font-semibold shrink-0">
+                    G
+                  </div>
+                  <div>
+                    <div className="text-lg font-semibold group-hover:underline">
+                      Galeonica
+                    </div>
+                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                      {lang === "es"
+                        ? "Infraestructura B2B de cashback y programas white-label."
+                        : "B2B cashback infrastructure and white-label rewards."}
+                    </p>
+                  </div>
+                </div>
+                <span className="text-sm text-gray-400">↗</span>
+              </div>
+            </a>
+
+            <a
               href="https://lightsats.com"
               target="_blank"
               rel={EXT}
