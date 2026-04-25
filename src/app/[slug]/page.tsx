@@ -3,14 +3,15 @@ import { notFound } from "next/navigation";
 
 import { getRouteBySlug } from "@/config/routes";
 import { buildTargetUrl } from "@/lib/buildTargetUrl";
-import { BridgeRedirector } from "@/components/BridgeRedirector";
+import { Redirector } from "@/components/BridgeRedirector";
 
 interface BridgePageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export function generateMetadata({ params }: BridgePageProps): Metadata {
-  const route = getRouteBySlug(params.slug);
+export async function generateMetadata({ params }: BridgePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const route = getRouteBySlug(slug);
 
   if (!route) {
     return {
@@ -25,8 +26,9 @@ export function generateMetadata({ params }: BridgePageProps): Metadata {
   };
 }
 
-export default function BridgePage({ params }: BridgePageProps) {
-  const route = getRouteBySlug(params.slug);
+export default async function BridgePage({ params }: BridgePageProps) {
+  const { slug } = await params;
+  const route = getRouteBySlug(slug);
 
   if (!route) {
     notFound();
@@ -35,7 +37,7 @@ export default function BridgePage({ params }: BridgePageProps) {
   const targetUrl = buildTargetUrl(route);
 
   return (
-    <BridgeRedirector
+    <Redirector
       targetUrl={targetUrl}
       delayMs={route.delayMs}
       title={route.title}
