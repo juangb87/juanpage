@@ -55,7 +55,7 @@ export default function SheinLandingPage() {
               href={sheinTrackingUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-[#FC6A42] px-4 py-2 text-sm font-bold text-[#151615] transition hover:bg-[#ff835d]"
+              className="rounded-full bg-[#FC6A42] px-4 py-2 font-[var(--font-unbounded)] text-xs font-bold text-[#151615] transition hover:bg-[#ff835d]"
             >
               Ir a SHEIN
             </a>
@@ -63,13 +63,13 @@ export default function SheinLandingPage() {
 
           <div className="grid items-center gap-10 py-14 md:grid-cols-[1.08fr_0.92fr] md:py-20">
             <div>
-              <p className="inline-flex rounded-full border border-[#FC6A42]/25 bg-[#FC6A42]/10 px-4 py-2 text-sm font-semibold text-[#FC6A42]">
+              <p className="inline-flex rounded-full border border-[#FC6A42]/25 bg-[#FC6A42]/10 px-4 py-2 font-[var(--font-unbounded)] text-xs font-light text-[#FC6A42]">
                 SHEIN México + cashback en bitcoin
               </p>
-              <h1 className="mt-6 max-w-4xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
+              <h1 className="mt-6 max-w-4xl font-[var(--font-unbounded)] text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl">
                 Compra en SHEIN. Recibe bitcoin de vuelta.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#E3E3D7]/75 md:text-xl">
+              <p className="mt-6 max-w-2xl font-[var(--font-inter)] text-lg leading-8 text-[#E3E3D7]/75 md:text-xl">
                 Entra a SHEIN desde Bumbei, compra normal y convierte parte de tu compra en sats. Sin puntos muertos. Sin vueltas raras.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -77,18 +77,18 @@ export default function SheinLandingPage() {
                   href={sheinTrackingUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-[#FC6A42] px-6 py-4 font-bold text-[#151615] transition hover:bg-[#ff835d]"
+                  className="inline-flex items-center justify-center rounded-full bg-[#FC6A42] px-6 py-4 font-[var(--font-unbounded)] text-sm font-bold text-[#151615] transition hover:bg-[#ff835d]"
                 >
                   Comprar en SHEIN con Bumbei
                 </a>
                 <a
                   href="#como-funciona"
-                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-4 font-semibold text-[#E3E3D7] transition hover:border-[#FC6A42]/40 hover:bg-white/10"
+                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-4 font-[var(--font-unbounded)] text-sm font-medium text-[#E3E3D7] transition hover:border-[#FC6A42]/40 hover:bg-white/10"
                 >
                   Ver cómo funciona
                 </a>
               </div>
-              <p className="mt-5 text-sm text-[#E3E3D7]/50">
+              <p className="mt-5 font-[var(--font-inter)] text-sm text-[#E3E3D7]/50">
                 Tip honesto: si usas un cupón externo después de activar Bumbei, el tracking puede perderse.
               </p>
             </div>
@@ -96,10 +96,10 @@ export default function SheinLandingPage() {
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur md:p-6">
               <div className="rounded-[1.6rem] bg-[#F5F1E8] p-5 text-[#151615]">
                 <div className="flex items-center justify-between gap-4">
-                  <div className="flex h-16 w-28 items-center justify-center rounded-full border border-[#151615]/10 bg-white px-4 text-lg font-black tracking-[0.16em]">
+                  <div className="flex h-16 w-28 items-center justify-center rounded-full border border-[#151615]/10 bg-white px-4 font-[var(--font-unbounded)] text-lg font-bold tracking-[0.16em]">
                     SHEIN
                   </div>
-                  <span className="rounded-full bg-[#151615] px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-[#F5F1E8]">
+                  <span className="rounded-full bg-[#151615] px-3 py-1 font-[var(--font-unbounded)] text-[10px] font-medium uppercase tracking-[0.18em] text-[#F5F1E8]">
                     Cashback
                   </span>
                 </div>
@@ -111,13 +111,13 @@ export default function SheinLandingPage() {
                     height={75}
                     className="h-9 w-auto object-contain"
                   />
-                  <p className="mt-5 text-sm font-bold uppercase tracking-[0.2em] opacity-70">
+                  <p className="mt-5 font-[var(--font-unbounded)] text-xs font-light uppercase tracking-[0.2em] opacity-70">
                     Recompensa Bumbei
                   </p>
-                  <p className="mt-2 text-5xl font-black">5%</p>
-                  <p className="mt-2 text-lg font-semibold">en bitcoin cashback</p>
+                  <p className="mt-2 font-[var(--font-unbounded)] text-5xl font-bold">5%</p>
+                  <p className="mt-2 font-[var(--font-unbounded)] text-lg font-light">en bitcoin cashback</p>
                 </div>
-                <div className="mt-4 grid gap-3 text-sm font-semibold">
+                <div className="mt-4 grid gap-3 font-[var(--font-inter)] text-sm font-semibold">
                   <div className="flex items-center justify-between rounded-2xl bg-[#151615]/5 px-4 py-3">
                     <span>Compra</span>
                     <span>SHEIN México</span>
@@ -139,17 +139,17 @@ export default function SheinLandingPage() {
 
       <section id="como-funciona" className="mx-auto max-w-6xl px-6 py-14 md:px-10">
         <div className="max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.25em] text-[#FC6A42]">Cómo funciona</p>
-          <h2 className="mt-4 text-4xl font-black tracking-tight md:text-5xl">
+          <p className="font-[var(--font-unbounded)] text-xs font-light uppercase tracking-[0.25em] text-[#FC6A42]">Cómo funciona</p>
+          <h2 className="mt-4 font-[var(--font-unbounded)] text-4xl font-bold tracking-tight md:text-5xl">
             Tres pasos. Cero magia negra.
           </h2>
         </div>
         <div className="mt-9 grid gap-4 md:grid-cols-3">
           {steps.map((step) => (
             <article key={step.number} className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
-              <p className="text-sm font-black text-[#FC6A42]">{step.number}</p>
-              <h3 className="mt-4 text-2xl font-bold">{step.title}</h3>
-              <p className="mt-3 leading-7 text-[#E3E3D7]/70">{step.copy}</p>
+              <p className="font-[var(--font-unbounded)] text-sm font-bold text-[#FC6A42]">{step.number}</p>
+              <h3 className="mt-4 font-[var(--font-unbounded)] text-2xl font-medium">{step.title}</h3>
+              <p className="mt-3 font-[var(--font-inter)] leading-7 text-[#E3E3D7]/70">{step.copy}</p>
             </article>
           ))}
         </div>
@@ -158,12 +158,12 @@ export default function SheinLandingPage() {
       <section className="mx-auto max-w-6xl px-6 py-10 md:px-10">
         <div className="grid gap-5 rounded-[2rem] border border-white/10 bg-white/5 p-6 md:grid-cols-[0.9fr_1.1fr] md:p-8">
           <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-[#FC6A42]">Para que sí trackee</p>
-            <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
+            <p className="font-[var(--font-unbounded)] text-xs font-light uppercase tracking-[0.25em] text-[#FC6A42]">Para que sí trackee</p>
+            <h2 className="mt-4 font-[var(--font-unbounded)] text-3xl font-bold tracking-tight md:text-4xl">
               No dejes que otro cupón se robe tu cashback.
             </h2>
           </div>
-          <ul className="space-y-3 text-[#E3E3D7]/75">
+          <ul className="space-y-3 font-[var(--font-inter)] text-[#E3E3D7]/75">
             {trackingTips.map((tip) => (
               <li key={tip} className="rounded-2xl bg-[#151615]/60 px-4 py-3">
                 {tip}
@@ -175,16 +175,16 @@ export default function SheinLandingPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-14 md:px-10">
         <div className="rounded-[2rem] bg-[#FC6A42] p-8 text-[#151615] md:p-10">
-          <p className="text-sm font-black uppercase tracking-[0.25em] opacity-70">Prueba piloto</p>
+          <p className="font-[var(--font-unbounded)] text-xs font-light uppercase tracking-[0.25em] opacity-70">Prueba piloto</p>
           <div className="mt-4 grid items-end gap-6 md:grid-cols-[1fr_auto]">
-            <h2 className="text-4xl font-black leading-tight tracking-tight md:text-5xl">
+            <h2 className="font-[var(--font-unbounded)] text-4xl font-bold leading-tight tracking-tight md:text-5xl">
               Si vas a comprar en SHEIN, haz que también trabaje para tu futuro.
             </h2>
             <a
               href={sheinTrackingUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-[#151615] px-6 py-4 font-bold text-[#E3E3D7] transition hover:bg-black"
+              className="inline-flex items-center justify-center rounded-full bg-[#151615] px-6 py-4 font-[var(--font-unbounded)] text-sm font-bold text-[#E3E3D7] transition hover:bg-black"
             >
               Activar cashback
             </a>
