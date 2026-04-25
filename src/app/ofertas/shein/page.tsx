@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 const sheinTrackingUrl = "https://app.bumbei.com";
@@ -41,10 +42,14 @@ export default function SheinLandingPage() {
         <div className="relative mx-auto max-w-6xl px-6 py-6 md:px-10 md:py-8">
           <nav className="flex items-center justify-between rounded-full border border-white/10 bg-white/5 px-4 py-3 backdrop-blur md:px-5">
             <Link href="/" className="flex items-center gap-3" aria-label="Bumbei home">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FC6A42] font-black text-[#151615]">
-                b
-              </div>
-              <span className="text-lg font-bold">Bumbei</span>
+              <Image
+                src="/bumbei/bumbei-logo-rgb-04.png"
+                alt="Bumbei"
+                width={132}
+                height={66}
+                priority
+                className="h-9 w-auto object-contain"
+              />
             </Link>
             <a
               href={sheinTrackingUrl}
@@ -91,7 +96,7 @@ export default function SheinLandingPage() {
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur md:p-6">
               <div className="rounded-[1.6rem] bg-[#F5F1E8] p-5 text-[#151615]">
                 <div className="flex items-center justify-between gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#151615]/10 bg-white text-xl font-black tracking-[0.18em]">
+                  <div className="flex h-16 w-28 items-center justify-center rounded-full border border-[#151615]/10 bg-white px-4 text-lg font-black tracking-[0.16em]">
                     SHEIN
                   </div>
                   <span className="rounded-full bg-[#151615] px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-[#F5F1E8]">
@@ -99,7 +104,14 @@ export default function SheinLandingPage() {
                   </span>
                 </div>
                 <div className="mt-8 rounded-[1.25rem] bg-[#FC6A42] p-6">
-                  <p className="text-sm font-bold uppercase tracking-[0.2em] opacity-70">
+                  <Image
+                    src="/bumbei/bumbei-logo-rgb-02.png"
+                    alt="Bumbei"
+                    width={150}
+                    height={75}
+                    className="h-9 w-auto object-contain"
+                  />
+                  <p className="mt-5 text-sm font-bold uppercase tracking-[0.2em] opacity-70">
                     Recompensa Bumbei
                   </p>
                   <p className="mt-2 text-5xl font-black">5%</p>
